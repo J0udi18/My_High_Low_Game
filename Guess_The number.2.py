@@ -1,3 +1,4 @@
+# This is a High Low Game
 from random import randint
 guesses = 1
 number = randint(1, 100)
