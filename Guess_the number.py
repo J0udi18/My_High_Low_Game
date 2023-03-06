@@ -18,4 +18,4 @@ if guess == number:
     print("Winner Winner, chicken dinner!")
     print("You guessed the correct number!")
 else:
-    print("You lose, better luck next time.The right number was",number)
+    print("You lose, better luck next time.The right number was", number)

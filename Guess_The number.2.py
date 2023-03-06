@@ -15,5 +15,6 @@ while guess != number:
         guesses = guesses + 1
 
 print()
-print("Congratulation, you guessed the number!")
+print("*****Congratulation, you guessed the number!*****")
+prize_decoration = "*"
 print("It only took you", guesses, "guesses!")
