@@ -1,5 +1,5 @@
 # This is a High Low Game
-from random import randint
+# from random import randint
 secret = 7
 guesses_allowed = 5
 
@@ -16,12 +16,12 @@ while guess != secret and guesses_left >= 1:
     # check that guess is not a duplicate
     if guess in already_guessed:
         print('You already guessed that number! please try again '
-              'you *still* have {} guesses left'.format(guesses_left)
+              'you *still* have {} guesses left').format(guesses_left)
         continue
     guesses_left -= 1
     already_guessed.append(guess)
 
-    if guesses_left : continue
+    if guesses_left: continue
 
 while guess != secret:
     if guess < secret:
@@ -30,11 +30,11 @@ while guess != secret:
         guesses = guesses + 1
     elif guess > secret:
         print("Your guess was too high.")
-        guess = int(input("Guess again."))
-        guesses = guesses + 1
+        guess = int(input('Guess again.'))
+        guesses = 'guess' + 1
 
 if guess == secret:
-    if guesses_left == guesses_allowed: int = 5
+    if guesses_allowed == guesses_left: int = 5
 print()
 print("*****Congratulation, you guessed the number!*****")
 prize_decoration = "*"
