@@ -13,8 +13,9 @@ while guess != secret and guesses_left >= 1:
 
     guess = int(input("guess: "))  # replace this with function
 
-    # check that guess is not a duplicate
     if guess in already_guessed:
+        continue
+        # check that guess is not a duplicate
         print('You already guessed that number! please try again '
               'you *still* have {} guesses left').format(guesses_left)
         continue
@@ -31,7 +32,7 @@ while guess != secret:
     elif guess > secret:
         print("Your guess was too high.")
         guess = int(input('Guess again.'))
-        guesses = 'guess' + 1
+        guesses = 'guesses' + 1
 
 if guess == secret:
     if guesses_allowed == guesses_left: int = 5
