@@ -1,11 +1,12 @@
 import random
 
+
 def higher_lower_game():
     # Generates random number for the game
     first_number = random.randint(1, 100)
     second_number = random.randint(1, 100)
-    
-    # Print the first number to strat the game
+
+    # Print the first number to start the game
     print(f"The first number is {first_number}")
 
     # Ask user to guess if the next 
@@ -24,10 +25,8 @@ def higher_lower_game():
         print("Sorry, you guessed incorrectly.")
 
     # Gives the user the option to play again
-    play_again = input("Do you want to play again? (Y/\N) ")
+    play_again = input("Do you want to play again? (Y///N)")
     if play_again.lower() == "y":
         higher_lower_game()
-        
-    # Runs the game 
-    higher_lower_game()
-    
+
+
