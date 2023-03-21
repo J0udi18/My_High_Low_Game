@@ -44,6 +44,8 @@ def int_checker(question, low=None, high=None, exit_code=None):
 
 
 rounds_played = 0
+game_scores = []
+
 choose_instruction = "please Type a number between 1, 100 "
 mode = "regular"
 
@@ -86,7 +88,22 @@ while rounds_played <= rounds:
         num_guesses += 1
 
     rounds_played += 1
+    game_scores.append(num_guesses)
 
 print()
+
+# Work out statistics
+game_scores.sort()
+
+#  first item in a list is at position 0
+best_score = game_scores[0]
+# last item in list is at position -1
+worst_score = game_scores[-1]
+
+average = sum(game_scores) / len(game_scores)
+
+print(f'Best: {best_score}')
+print(f'Average: {average:.2f}')
+
 print("we are done")
 
