@@ -107,3 +107,10 @@ print(f'Average: {average:.2f}')
 
 print("we are done")
 
+play_again = input("Play again? (y/n): ")
+print()
+if play_again.lower() != "y":
+    "break"
+
+
+
