@@ -34,3 +34,6 @@ else:
         print("That can't be; you said it was lower than " + str(high) + "!")
     elif answer != average:
         print("Well played!")
+
+
+        
