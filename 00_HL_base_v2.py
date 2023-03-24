@@ -27,6 +27,25 @@ def instructions():
     return ""
 
 
+def statement_generator(statement, decoration):
+    sides = decoration * 3
+
+    statement = "{} {} {}".format(sides, statement, sides)
+    top_bottom = decoration * len(statement)
+
+    print(top_bottom)
+    print(statement)
+    print(top_bottom)
+
+    return ""
+
+
+# Main routine goes here
+statement_generator("welcome to the Low High Game", "*")
+print()
+statement_generator("congratulations", "!")
+
+
 # checks for integers that are optionally more than /
 # between two numbers.  Also allows for exit codes
 def int_checker(question, low=None, high=None, exit_code=None):
@@ -73,6 +92,7 @@ rounds_played = 0
 end_game = "no"
 
 game_scores = []
+game_history = []
 
 choose_instruction = "please Type a number between 1, 100 "
 mode = "regular"
@@ -83,7 +103,6 @@ played_before = yes_no("Have you played the "
 if played_before == "no":
     instructions()
 
-
 # Ask user for # of rounds, <enter> for infinite mode
 rounds = int_checker("How many rounds: ", low=0, exit_code="")
 
@@ -92,7 +111,7 @@ if rounds == "":
     mode = "infinite"
     rounds = 5
 
-while rounds_played <= rounds and end_game == "no":
+while rounds_played < rounds and end_game == "no":
 
     if mode == "infinite":
         heading = f"Continuous Mode: Round {rounds_played + 1}"
@@ -120,8 +139,12 @@ while rounds_played <= rounds and end_game == "no":
             print("too high")
         else:
             print("well done")
+            feedback = f"You got it in {num_guesses + 1}"
 
         num_guesses += 1
+
+    outcome = f'Round {rounds_played + 1}: {feedback}'
+    game_history.append(outcome)
 
     rounds_played += 1
     game_scores.append(num_guesses)
@@ -141,10 +164,13 @@ average = sum(game_scores) / len(game_scores)
 print(f'Best: {best_score}')
 print(f'Average: {average:.2f}')
 
+print(f'**** Game History ******')
+for item in game_history:
+    print(item)
+
 print("we are done")
 
 play_again = input("Play again? (y/n): ")
 print()
 if play_again.lower() != "y":
     "break"
-    
