@@ -96,4 +96,3 @@ while True:
     if reset():
         min_max, guess_limit = setup()
 
-pythonpython-3.xnumber-guessing-game
