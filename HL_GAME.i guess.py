@@ -169,3 +169,8 @@ average = sum(game_stats_numbers) / len(game_stats_numbers)
 print(f"Average: {average}")
 
 quit("Thanks for playing")
+
+play_again = input("Play again? (y/n): ")
+print()
+if play_again.lower() != "y":
+    "break"
