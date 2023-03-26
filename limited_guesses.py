@@ -10,9 +10,9 @@ print("")
 
 for i in range(guesses_allowed):
     userInput = input("Guess a number between 1 and " + str(guess_range) + ": ")
-    guess = int(userInput)
+    guesses_allowed = int(userInput)
 
-    if guess == answer:
+    if guess_range == answer:
         print("Congratulations! You guessed the correct number. You win!")
         break
 
