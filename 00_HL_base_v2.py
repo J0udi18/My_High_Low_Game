@@ -133,6 +133,8 @@ while rounds_played < rounds and end_game == "no":
 
     num_guesses = 0
     secret = random.randrange(low_num, high_num)
+    already_guessed = []
+
     print(f'Spoiler alert {secret}')
 
     choose = ""
@@ -143,7 +145,16 @@ while rounds_played < rounds and end_game == "no":
             end_game = "yes"
             break
 
-        elif choose < secret:
+        # if user has already guessed the number, complain
+        # otherwise add the number to our 'already guessed' list.
+        if choose in already_guessed:
+            print("You already entered this number.")
+            continue
+        else:
+            already_guessed.append(choose)
+            print("Number added.")
+
+        if choose < secret:
             print("too low")
         elif choose > secret:
             print("too high")
