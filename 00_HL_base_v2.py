@@ -27,23 +27,20 @@ def instructions():
     return ""
 
 
-def statement_generator(statement, decoration):
+def statement_generator(statement, decoration, lines=None):
     sides = decoration * 3
 
     statement = "{} {} {}".format(sides, statement, sides)
     top_bottom = decoration * len(statement)
 
-    print(top_bottom)
-    print(statement)
-    print(top_bottom)
+    if lines == 3:
+        print(top_bottom)
+        print(statement)
+        print(top_bottom)
+    else:
+        print(statement)
 
     return ""
-
-
-# Main routine goes here
-statement_generator("welcome to the Low High Game", "*")
-print()
-statement_generator("congratulations", "!")
 
 
 # checks for integers that are optionally more than /
@@ -52,7 +49,7 @@ def int_checker(question, low=None, high=None, exit_code=None):
     situation = ""
     if low is not None and high is not None:
         situation = "both"
-    elif low is not None and high is not None:
+    elif low is not None and high is None:
         situation = "low only"
 
     while True:
@@ -98,6 +95,10 @@ game_history = []
 choose_instruction = "please Type a number between 1, 100 "
 mode = "regular"
 
+# Main routine goes here
+statement_generator("welcome to the Low High Game", "*", 3)
+print()
+
 played_before = yes_no("Have you played the "
                        "game before? ")
 
@@ -105,10 +106,10 @@ if played_before == "no":
     instructions()
 
 # Ask user for # of rounds, <enter> for infinite mode
-rounds = int_checker("How many rounds: ", low=0, exit_code="")
+rounds = int_checker("How many rounds: ", low=1, exit_code="")
 print()
 low_num = int_checker("Please enter a low number: ")
-high_num = int_checker("Please enter a high number: ", low_num)
+high_num = int_checker("Please enter a high number: ", low_num + 1)
 
 guess_range = high_num - low_num
 guesses_allowed = 3
