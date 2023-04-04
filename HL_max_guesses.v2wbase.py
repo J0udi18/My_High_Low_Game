@@ -1,5 +1,6 @@
 import random
 
+
 # checks users enter yes / no (y / n) to a question
 def yes_no(question):
     while True:
@@ -12,6 +13,7 @@ def yes_no(question):
         else:
             print("please answer yes / no")
 
+
 # displays instructions
 def instructions():
     print("Instructions")
@@ -21,6 +23,7 @@ def instructions():
 - etc
 ''')
     return ""
+
 
 def statement_generator(statement, decoration, lines=None):
     sides = decoration * 3
@@ -36,6 +39,7 @@ def statement_generator(statement, decoration, lines=None):
         print(statement)
 
     return ""
+
 
 # checks for integers that are optionally more than /
 # between two numbers. Also allows for exit codes
@@ -78,9 +82,10 @@ def int_checker(question, low=None, high=None, exit_code=None):
             print("please enter an integer")
             continue
 
+
 rounds_played = 0
 end_game = "no"
-feedback = "" # initialise feedback to "" so it is never undefined
+feedback = ""  # initialise feedback to "" so it is never undefined
 
 game_scores = []
 game_history = []

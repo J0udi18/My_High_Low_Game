@@ -1,4 +1,5 @@
 import random
+import math
 
 
 # checks users enter yes / no (y / n) to a question
@@ -112,7 +113,9 @@ low_num = int_checker("Please enter a low number: ")
 high_num = int_checker("Please enter a high number: ", low_num + 1)
 
 guess_range = high_num - low_num
-guesses_allowed = 3
+max_raw = math.log2(guess_range)    # fins max # of guesses
+max_upped = math.ceil(max_raw)
+max_guesses = max_upped + 1
 
 print()
 if rounds == "":
@@ -133,6 +136,7 @@ while rounds_played < rounds and end_game == "no":
     print(heading)
 
     num_guesses = 0
+    guesses_allowed = max_guesses
     secret = random.randrange(low_num, high_num)
     already_guessed = []
 
@@ -141,7 +145,8 @@ while rounds_played < rounds and end_game == "no":
     choose = ""
     lose = "no"
     while choose != secret and lose == "no":
-        choose = int_checker("Guess:", low_num, high_num, "xxx")
+        choose = int_checker(f"Guess (you have {guesses_allowed - num_guesses} left):"
+                             , low_num, high_num, "xxx")
         if choose == "xxx":
             end_game = "yes"
             break
